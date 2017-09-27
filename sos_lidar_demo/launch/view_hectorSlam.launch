@@ -1,0 +1,8 @@
+<launch>
+  <node pkg="sos_lidar_demo" type="SOS_LiDAR_subscriber" name="SOS_LiDAR_subscriber" output="screen">
+    <param name="frame_id" value="laser"/>
+  </node>
+
+  <include file="$(find sos_lidar_demo)/launch/hectormapping.launch" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find sos_lidar_demo)/rviz/slam.rviz" />
+</launch>

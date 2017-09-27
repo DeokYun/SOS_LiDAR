@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package>
+  <name>sos_lidar_demo</name>
+  <version>0.0.1</version>
+
+  <description>
+    SOS LiDAR application
+  </description>
+
+  <maintainer email="luca911014@gmail.com">JDY</maintainer>
+  <author>JDY</author>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>image_transport</build_depend>
+  <build_depend>camera_info_manager</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>image_transport</run_depend>
+  <run_depend>camera_info_manager</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
+</package>

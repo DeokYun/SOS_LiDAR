@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="sos_lidar_demo" type="SOS_LiDAR_subscriber" name="SOS_LiDAR_subscriber" output="screen">
+    <param name="frame_id" value="laser"/>
+  </node>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find sos_lidar_demo)/rviz/sos_lidar_viewer.rviz" />
+</launch>

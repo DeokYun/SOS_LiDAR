@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="sos_lidar_driver" type="sos_lidar_publisher" name="sos_lidar_publisher" output="screen">
+    <param name="video_port" value="1"/>
+    <param name="frame_id" value="laser"/>
+  </node>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find sos_lidar_driver)/rviz/sos_lidar_viewer.rviz" />
+</launch>
