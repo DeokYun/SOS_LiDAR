@@ -2,8 +2,6 @@
 #include <sensor_msgs/LaserScan.h>
 #include <std_msgs/UInt16.h>
 #include "opencv2/opencv.hpp"
-// #include <image_transport/image_transport.h>
-// #include <cv_bridge/cv_bridge.h>
 #include <sstream>
 #include <iostream>
 #include "sos_lidar.h"

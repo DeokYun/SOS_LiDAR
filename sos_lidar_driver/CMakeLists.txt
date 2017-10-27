@@ -1,31 +1,21 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(sos_lidar_driver)
 
-##################### V4L2 package 찾아내는 코드 ##################################
-## cmake 폴더 추가함
-set(CMAKE_CXX_FLAGS "-g -Wall -std=c++11")
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_LIST_DIR}/cmake/")
-set(CMAKE_BUILD_TYPE Release)
-##################################################################################
-
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
-  cv_bridge
-  image_transport
-  camera_info_manager
   sensor_msgs
   std_msgs
 )
 
 find_package(OpenCV)
 
-find_package(V4L2 REQUIRED)
+set(V4L2_LIBRARIES v4l2)
 
 catkin_package(
    INCLUDE_DIRS include
    LIBRARIES sos_lidar_driver
-   CATKIN_DEPENDS roscpp sensor_msgs cv_bridge image_transport
+   CATKIN_DEPENDS roscpp sensor_msgs
 )
 
 include_directories(
