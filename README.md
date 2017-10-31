@@ -5,7 +5,7 @@ SOS LIDAR github:  https://github.com/DeokYun/SOS_LiDAR
 
 ## INSTALL DEPENDECIES
     1) sudo apt-get install v4l-utils
-    2) sudo apt-get install libv4l2-dev
+    2) sudo apt-get install libv4l-dev
 
 ## HOW TO BUILD SOS LIDAR ROS PACKAGE
 
