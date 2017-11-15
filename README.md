@@ -25,3 +25,18 @@ SOS LIDAR github:  https://github.com/DeokYun/SOS_LiDAR
     
 #### 3. Run sos_lidar_publisher node and view in the rviz
     roslaunch sos_lidar_driver sos_lidar_viewer.launch
+    
+## HOW TO RUN SLAM WITH GMAPPING
+#### 1. Run sos_lidar_publisher node on ROBOT PC
+    rosrun sos_lidar_driver sos_lidar_publisher 
+    
+#### 2. Run Gmapping node and rviz on REMOTE PC
+    roslaunch sos_lidar_driver view_gmapping.launch
+    
+## HOW TO RUN SLAM WITH HECTOR SLAM
+#### 1. Run sos_lidar_publisher node on ROBOT PC
+    rosrun sos_lidar_driver sos_lidar_publisher 
+    
+#### 2. Run Hectormapping node and rviz on REMOTE PC
+    roslaunch sos_lidar_driver view_hectorSlam.launch
+
