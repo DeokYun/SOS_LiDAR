@@ -23,8 +23,8 @@ SOSlaser::SOSlaser()
 
     //------------------------------------------------------//
     scan_.header.frame_id = frame_id_;
-    scan_.angle_min = 40.0*PI/180;          // 40 deg to 140 deg fov
-    scan_.angle_max = 140.0*PI/180;         // 40 deg to 140 deg fov
+    scan_.angle_min = -50.0*PI/180;          // 40 deg to 140 deg fov
+    scan_.angle_max = 50.0*PI/180;         // 40 deg to 140 deg fov
     scan_.angle_increment = 0.1*(PI/180);    // angular resolution 0.1 deg
     scan_.range_min = 0.15;
     scan_.range_max = 3.0;
