@@ -18,7 +18,8 @@ const float PI = 3.14159265;
 SOSlaser::SOSlaser()
 {
     //initialization
-    nh_.param("video_port", port_, 0);
+    ros::NodeHandle nh_("~");
+    nh_.param("video_port", port_, 1);
     nh_.param("frame_id", frame_id_, std::string("base_scan"));
 
     //------------------------------------------------------//
@@ -31,7 +32,7 @@ SOSlaser::SOSlaser()
     scan_.ranges.resize(1001);
     //------------------------------------------------------//
 
-    laser_pub_ = nh_.advertise<sensor_msgs::LaserScan>("scan", 1);
+    laser_pub_ = nh.advertise<sensor_msgs::LaserScan>("scan", 1);
 
     //-------------------------------------------------//
     std::stringstream video_setting_num;
@@ -53,7 +54,7 @@ SOSlaser::SOSlaser()
       ROS_INFO_STREAM("A camera is Opend!!");
     }
     //------------------ camera open ----------------------------//
-    
+
 
     //-------------------Camera resoultion setup-----------------------//
     Camera.set(CV_CAP_PROP_FRAME_WIDTH, 1920);
@@ -144,7 +145,7 @@ void SOSlaser::poll()
   //---------------------------------------------------------------------------------//
 
   Camera >> tempFrame1 ;
-  
+
     if(!tempFrame1.empty())
     {
       //------------------------------------- laser beam extraction -------------------------------------------//

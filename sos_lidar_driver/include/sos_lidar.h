@@ -24,7 +24,7 @@ class SOSlaser
 
  private:
   //--------------------------- lidar ------------------------------//
-  ros::NodeHandle nh_;   // ROS NodeHandle
+  ros::NodeHandle nh;   // ROS NodeHandle
   ros::Publisher laser_pub_;  // ROS Topic Publishers
   std::string frame_id_;      // LiDAR farme
   sensor_msgs::LaserScan scan_;
