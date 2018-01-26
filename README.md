@@ -20,7 +20,7 @@ SOS LIDAR github:  https://github.com/DeokYun/SOS_LiDAR
 #### 2. Change video port parameter to your video port of a sos lidar
   sos_lidar.launch file is in sos_lidar_driver/launch folder
 
-  ![sos_lidar_launch](/home/yun/github/SOS_LIDAR/soslidar.png)
+  ![sos_lidar_launch](~/github/SOS_LIDAR/soslidar.png)
 
   Change video_port value to your video port of a sos lidar
     
