@@ -61,11 +61,20 @@ SOSlaser::SOSlaser()
     Camera.set(CV_CAP_PROP_FRAME_HEIGHT, 1080);
     //-----------------------------------------------------------------//
 
+    //-------------------Camera pixel format setup---------------------//
+    Camera.set(CV_CAP_PROP_FOURCC ,CV_FOURCC('M', 'J', 'P', 'G') );
+    // Camera.set(CAP_PROP_FPS, 30.0);
+    //-----------------------------------------------------------------//
+
     //------------------------------v4l2 setup----------------------//
     // fd = open("/dev/video0", O_RDWR);
     fd = open(video_setting.c_str(), O_RDWR);
 
     v4l2_control c;
+
+    c.id = V4L2_CID_EXPOSURE_AUTO;
+    c.value = 0;
+    v4l2_ioctl(fd, VIDIOC_ENUM_FMT, &c);
 
     c.id = V4L2_CID_EXPOSURE_AUTO;
     c.value = V4L2_EXPOSURE_MANUAL;
@@ -107,10 +116,10 @@ void SOSlaser::poll()
   //--------------------------------------------------------------------------------//
 
   //------------------------------------ ROI ---------------------------------------//
-  int c_start =240;
+  int c_start =195;
   int r_start = 0;
-  int c_length = 1679;
-  int r_length = 576;
+  int c_length = 1685;
+  int r_length = 658;
   Rect ROI(c_start, r_start, c_length, r_length);
 
   //-------------------------number of datas for each frame----------------------------//
@@ -135,9 +144,9 @@ void SOSlaser::poll()
   //---------------------------calbration coefficient-------------------------------//
   Mat_<float> camMat(3,3);
   Mat_<float> distCoeffs(1,4);
-  double fx = 1013.179; double fy = 1019.742; double cx = 1051.801; double cy = 575.7114;
-  float laser_angle = -0.63*(PI/180);
-  float dist_calib_a = -48430; float dist_calib_b = -573.2; float dist_calib_c = -11.58;
+  double fx = 1036.2; double fy = 1039.5; double cx = 966.6125; double cy = 542.7185;
+  float laser_angle = -0.55*(PI/180);
+  float dist_calib_a = -49200; float dist_calib_b = -527.1; float dist_calib_c = 17.3;
   camMat << fx, 0, cx, 0, fy, cy, 0, 0, 1;
   distCoeffs << -0.3112, 0.071369, 0.0005339, 0.00136279;
 
@@ -145,6 +154,9 @@ void SOSlaser::poll()
   //---------------------------------------------------------------------------------//
 
   Camera >> tempFrame1 ;
+  // cout << tempFrame1.size().width << endl;
+  // cout << tempFrame1.size().height << endl;
+
 
     if(!tempFrame1.empty())
     {
