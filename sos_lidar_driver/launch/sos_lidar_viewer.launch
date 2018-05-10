@@ -1,4 +1,0 @@
-<launch>
-  <include file="$(find sos_lidar_driver)/launch/sos_lidar.launch" />
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find sos_lidar_driver)/rviz/sos_lidar_viewer.rviz" />
-</launch>
